@@ -6,35 +6,41 @@ public class Stack {
     int size;
 
     public Stack(int cap){
-        
+        capacity = cap;
+        arr = new Node[capacity];
+        size = -1;
     }
     
     public void push(Node node){
         if (!isFull()){
-            // do something
+            // add node to arr
+            arr[++size] = node;
         }else{
             System.out.println("Stack Overflow!!!");
         }
     }
     public Node pop(){
         if (!isEmpty()){
-            // do something
+            // remove last node, simply change index
+            return arr[size--];
         }else{
-            System.out.println("Stack Overflow!!!");
+            System.out.println("Stack Underflow!!!");
         }
-        return null; // fix this (out of place)
+        return null;
     }
     public boolean isFull(){
-        return false; // fix this
+        return size == capacity -1;
     }
     public boolean isEmpty(){
-        return false; // fix this
+        return size == -1;
     }
     
     public void printStack(){
         if (!isEmpty()) {
             System.out.print("[Bottom] ");
-            // do something here
+            int i = -1;
+            while(++i <= size)
+                System.out.print(arr[i].data + " ");
             System.out.println("[Top]");
         } else {
             System.out.println("Empty Stack!!!");

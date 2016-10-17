@@ -8,13 +8,20 @@ public class Queue {
     int size;
     
     public Queue(int cap){
-
+        capacity = cap;
+        size = -1;
+        front = 0;
+        back = 0;
+        arr = new Node[capacity];
     }
     
     public void enqueue(Node node){
         if (!isFull()){
-            // do something
-            
+            //add node to arr at front index
+            arr[back++] = node;
+            ++size;
+            if(back == capacity )
+                back = 0;
         }else{
             System.out.println("Queue Overflow!!!");
         }
@@ -23,8 +30,9 @@ public class Queue {
     public Node dequeue(){
         
         if (!isEmpty()){
-            // do something
-            
+            //remove node from arr at back index
+            --size;
+            return arr[front++];
         }else{
             System.out.println("Queue Underflow!!!");
         }
@@ -32,11 +40,11 @@ public class Queue {
     }
     
     public boolean isEmpty(){
-        return false; // fix this
+        return size == -1;
     }
     
     public boolean isFull(){
-        return false; // fix this
+        return size == capacity - 1;
     }
     
     public void printCircularIndices(){
@@ -46,7 +54,14 @@ public class Queue {
     public void printQueue(){
         if (!isEmpty()){
             System.out.print("[Front] ");
-            // do something here
+            int i = front;
+            int j = 0;
+            while(j++ <= size)
+            {
+                if(i == capacity)
+                    i = 0;
+                System.out.print(arr[i++].data+" ");
+            }
             System.out.println("[Back]");
         }else{
             System.out.println("Empty Queue!!!");
