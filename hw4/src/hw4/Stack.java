@@ -8,7 +8,7 @@ public class Stack {
     public Stack(int cap){
         capacity = cap;
         arr = new Node[capacity];
-        size = -1;
+        size = -1;//size starts at -1, means that the actual size is size+1
     }
     
     public void push(Node node){
@@ -38,9 +38,10 @@ public class Stack {
     public void printStack(){
         if (!isEmpty()) {
             System.out.print("[Bottom] ");
-            int i = -1;
-            while(++i <= size)
-                System.out.print(arr[i].data + " ");
+            int i = 0;
+            while(i <= size)//print from the first object to the last(size time(s))
+            //i starts at 0 and increased its value after operates arr[i] operation
+                System.out.print(arr[i++].data + " ");
             System.out.println("[Top]");
         } else {
             System.out.println("Empty Stack!!!");
