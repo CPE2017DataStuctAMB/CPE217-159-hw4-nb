@@ -9,7 +9,7 @@ public class Queue {
     
     public Queue(int cap){
         capacity = cap;
-        size = -1;
+        size = -1;//size starts at -1, means that the actual size is size+1
         front = 0;
         back = 0;
         arr = new Node[capacity];
@@ -56,7 +56,7 @@ public class Queue {
             System.out.print("[Front] ");
             int i = front;
             int j = 0;
-            while(j++ <= size)
+            while(j++ <= size)//print object(s) in queue size time(s)
             {
                 if(i == capacity)
                     i = 0;
