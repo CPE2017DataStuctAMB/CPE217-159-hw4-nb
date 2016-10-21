@@ -17,17 +17,11 @@ public class Main {
         Node t7 = new Node(8);
         Node t8 = new Node(4);
 
-        t0.setLeft(t1);
-        t0.setRight(t2);
-
-        t1.setLeft(t3);
-        t1.setRight(t4);
-
-        t4.setLeft(t6);
-        t4.setRight(t7);
-
-        t2.setRight(t5);
-        t5.setLeft(t8);
+        t0.makeTree(t1, t2);
+        t1.makeTree(t3, t4);
+        t4.makeTree(t6 ,t7);
+        t2.makeTree(null, t5);
+        t5.makeTree(t8, null);
 
         return t0;
     }
@@ -44,16 +38,12 @@ public class Main {
         Node t8 = new Node(9);
         Node t9 = new Node(10);
 
-        t0.setLeft(t1);
-        t0.setRight(t2);
-        t1.setRight(t4);
-        t1.setLeft(t3);
-        t4.setLeft(t6);
-        t4.setRight(t7);
-        t7.setRight(t9);
-
-        t2.setRight(t5);
-        t5.setLeft(t8);
+        t0.makeTree(t1, t2);
+        t1.makeTree(t3, t4);
+        t4.makeTree(t6, t7);
+        t7.makeTree(null, t9);
+        t2.makeTree(null, t5);
+        t5.makeTree(t8, null);
 
         return t0;
     }
