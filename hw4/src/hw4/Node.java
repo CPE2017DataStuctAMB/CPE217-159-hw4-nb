@@ -1,18 +1,20 @@
 package hw4;
 
-public class Node {
+public class Node extends BTreePrinter {
 
     Node left;
     Node right;
     int data;
 
     public Node(int data) {
-
+        //Set init
+        this.data = data;
     }
 
     public void printTree() {
+        BTreePrinter btree = new BTreePrinter();
         // uncomment the following line (and fix the error)
-        // super.printTree(this);
+        btree.printTree(this);
     }
 
     public void printBFT() {
@@ -26,4 +28,13 @@ public class Node {
         System.out.print("DFT node sequence [ ");
         System.out.println("]");
     }
+
+    public void setLeft(Node ls){
+        this.left = ls;
+    }
+
+    public void setRight(Node rs){
+        this.right = rs;
+    }
+
 }
