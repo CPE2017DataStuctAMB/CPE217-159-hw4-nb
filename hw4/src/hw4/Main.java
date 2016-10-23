@@ -3,8 +3,11 @@ package hw4;
 public class Main {
 
     public static void main(String[] args)  {
-        testCase(5);
-        //9
+        for(int i=0; i<=5; i++){
+            testCase(i);
+            System.out.println("\n--------------\n");
+        }
+
     }
 
     private static Node constructTree1() {

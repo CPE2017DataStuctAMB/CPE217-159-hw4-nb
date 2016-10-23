@@ -20,18 +20,35 @@ public class Node extends BTreePrinter {
     }
 
     public void printBFT() {
+        //Binary Search tree
         Queue q = new Queue(50);
         System.out.print("BFT node sequence [ ");
-        //this.inOrderTravel();
+        q.enqueue(this);
+        while(!q.isEmpty())
+        {
+            Node currentNode = q.dequeue();
+            System.out.print(currentNode.data+" ");
+            if(haveChild(currentNode.left))
+                q.enqueue(currentNode.left);
+            if(haveChild(currentNode.right))
+                q.enqueue(currentNode.right);
+        }
         System.out.println("]");
     }
 
     public void printDFT() {
         // PreOrder
         Stack s = new Stack(50);
-
         System.out.print("DFT node sequence [ ");
-        this.preOrderTravel();
+        s.push(this);
+        while(!s.isEmpty()){
+            Node currentNode = s.pop();
+            System.out.print(currentNode.data+" ");
+            if(haveChild(currentNode.right))
+                s.push(currentNode.right);
+            if(haveChild(currentNode.left))
+                s.push(currentNode.left);
+        }
         System.out.println("]");
     }
 
@@ -68,6 +85,10 @@ public class Node extends BTreePrinter {
         if(this.right != null){
             right.inOrderTravel();
         }
+    }
+
+    private boolean haveChild(Node node){
+        return node != null;
     }
 
 }
